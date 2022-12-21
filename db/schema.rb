@@ -17,10 +17,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_155748) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "name"
+    t.string "password_digest"
     t.string "email"
     t.integer "age"
     t.string "gender"
     t.string "avatar"
+    t.boolean "is_cancellor", default: false
+    t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
