@@ -10,9 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_155748) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_22_110504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cancellor_profile_id"
+    t.datetime "time"
+    t.string "topic"
+    t.string "title"
+    t.text "description"
+    t.integer "maximum"
+    t.string "location"
+    t.boolean "approved", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "counselor_profiles", force: :cascade do |t|
+    t.string "specialization"
+    t.integer "user_id"
+    t.boolean "verified", default: false
+    t.text "bio"
+    t.text "experience"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "counselor_profile_id"
+    t.integer "user_id"
+    t.text "comment"
+    t.boolean "approved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.integer "counselor_profile_id"
+    t.datetime "time"
+    t.string "topic"
+    t.string "title"
+    t.text "description"
+    t.integer "maximum"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
