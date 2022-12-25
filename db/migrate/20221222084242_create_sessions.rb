@@ -6,7 +6,7 @@ class CreateSessions < ActiveRecord::Migration[7.0]
       t.string :topic
       t.string :title
       t.text :description
-      t.integer :maximum
+      t.integer :maximum, default: 10
       t.string :location
 
       t.timestamps
