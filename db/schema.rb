@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_110504) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_25_113607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "cancellor_profile_id"
+    t.integer "counselor_profile_id"
     t.datetime "time"
     t.string "topic"
     t.string "title"
     t.text "description"
-    t.integer "maximum"
     t.string "location"
-    t.boolean "approved", default: true
+    t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_110504) do
     t.string "topic"
     t.string "title"
     t.text "description"
-    t.integer "maximum"
+    t.integer "maximum", default: 10
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,6 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_110504) do
     t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_counselor", default: false
   end
 
 end
