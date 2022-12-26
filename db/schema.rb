@@ -66,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_25_113607) do
     t.integer "age"
     t.string "gender"
     t.string "avatar"
-    t.boolean "is_cancellor", default: false
     t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
