@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.integer :age
       t.string :gender
       t.string :avatar
-      t.boolean :is_cancellor, default: false
       t.boolean :is_admin, default: false
 
       t.timestamps
