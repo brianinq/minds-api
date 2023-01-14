@@ -16,6 +16,9 @@ class CounselorProfilesController < ApplicationController
         render json: profile, status: :created
     end
     def verify
+        if !current_user.is_admin
+            return render json: {"error": "Unauthorized"}, status: :unauthorized
+        end
         counselor = CounselorProfile.find(params[:id])
         counselor.update(verified: true)
         counselor.user.is_counselor = true

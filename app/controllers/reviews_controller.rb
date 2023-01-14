@@ -8,6 +8,9 @@ class ReviewsController < ApplicationController
     end
 
     def update
+        if !current_user.is_admin
+            return render json: {"error": "Unauthorized"}, status: :unauthorized
+        end
         review = Review.find(params[:id])
         review.update(review_params)
         render json: review, status: :ok
