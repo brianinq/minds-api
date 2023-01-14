@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
         render json: session, status: :created
     end
     def destroy
-        session = Session.create!(session_params)
+        session = Session.find(params[:id])
+        session.destroy
         head :no_content
     end
 

@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :create, :update, :show, :destroy]
   resources :counselor_profiles, only: [:index, :create, :show, :update]
   post '/login', to: 'auth#create'
+  post '/verify/:id', to: 'counselor_profiles#verify'
   get '/profile', to: 'users#profile'
 end
