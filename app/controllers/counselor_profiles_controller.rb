@@ -21,7 +21,7 @@ class CounselorProfilesController < ApplicationController
         end
         counselor = CounselorProfile.find(params[:id])
         counselor.update(verified: true)
-        counselor.user.is_counselor = true
+        counselor.user.update(is_counselor: true)
         render json: counselor, status: :created
     end
     private
