@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
     skip_before_action :authorized, only: [:index]
     
     def index
+        if params[:counselor_profile_id]
+            return render json: Session.all.where(counselor_profile_id: params[:counselor_profile_id])
+        end
         render json: Session.all, status: :ok
     end
     def show
