@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
   post '/verify/:id', to: 'counselor_profiles#verify'
   get '/profile', to: 'users#profile'
+  get "/stats", to: "users#stats"
 end

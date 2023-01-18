@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
         user = current_user
         appointment = Appointment.create(appointment_params)
         user.appointments << appointment
-        render json: appointment
+        render json: appointment, status: :created
     end
 
     def show

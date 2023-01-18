@@ -25,6 +25,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def stats
+        if !current_user.is_admin
+            return render json: {"error": "Unauthorized"}, status: :unauthorized
+        end
+        render json: {users: User.count, counselors: CounselorProfile.count, sessions: Session.count, appointments: Appointment.count }, status: :ok
+    end
 
     private
     def user_params
