@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :appointments, only:[:index, :update,  :create, :destroy]
   resources :sessions, only: [:index, :create, :update, :show, :destroy]
   resources :reviews, only: [:index, :create, :update, :show, :destroy]
-  resources :counselor_profiles, only: [:index, :create, :show, :update] do
+  resources :counselor_profiles, only: [:index, :create, :show, :update,:destroy] do
     resources :sessions, only: [:index, :create, :update, :show, :destroy]
   end
   post '/login', to: 'auth#create'
