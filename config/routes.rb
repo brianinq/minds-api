@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :update, :show] do
     resources :appointments, only:[:index, :create, :show, :update, :destroy]
   end
-  post '/new_from_session/:id', to: 'appointments#new_from_session'
+  post '/new_from_session', to: 'appointments#new_from_session'
   resources :appointments, only:[:index, :update,  :create, :destroy]
   resources :sessions, only: [:index, :create, :update, :show, :destroy]
   resources :reviews, only: [:index, :create, :update, :show, :destroy]
